@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 
 class flightModel(models.Model):
-    flightNumber = models.CharField(max_legnth =10)
-    operatingAirline = models.CharField(max_legnth =20)
-    DepartureCity = models.CharField(max_legnth =20)
-    arrivalCity = models.CharField(max_legnth =20)
+    flightNumber = models.CharField(max_length =10)
+    operatingAirline = models.CharField(max_length =20)
+    DepartureCity = models.CharField(max_length =20)
+    arrivalCity = models.CharField(max_length =20)
     dateOfDeparture = models.TimeField()
     
 class passengerModel(models.Model):
@@ -17,5 +17,6 @@ class passengerModel(models.Model):
     mob = models.CharField(max_length=13)
 
 
-class reservation(models.Model):
-    
+class reservationModel(models.Model):
+    passenger = models.OneToOneField(passengerModel,on_delete=models.CASCADE)
+    flight = models.OneToOneField(flightModel, on_delete = models.CASCADE)

@@ -79,10 +79,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'flightDb',
-        'USER': 'root',
-        'PASS':'root'
+        'USER' : 'root',
+        'PASSWORD' : 'root'
     }
 }
+
 
 
 # Password validation
