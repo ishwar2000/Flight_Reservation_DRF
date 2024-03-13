@@ -15,8 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from .views import flights,flight
+from .views import flights,flight, passengers, passenger, reservations, reservation, find_flight,reserveFlight
+from rest_framework.authtoken.views import obtain_auth_token
+
 urlpatterns = [
     path('flights', flights.as_view()),
     path('flights/<int:pk>', flight.as_view()),
+    path('passengers', passengers.as_view()),
+    path('passengers/<int:pk>', passenger.as_view()),
+    path('reservations', reservations.as_view()),
+    path('reservations/<int:pk>', reservation.as_view()),
+    path('findFlights', find_flight),
+    path('reserveFlight', reserveFlight),
+    path('authenticate', obtain_auth_token, name="api_token_auth"),
+
 ]

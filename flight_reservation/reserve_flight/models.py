@@ -18,5 +18,5 @@ class passengerModel(models.Model):
 
 
 class reservationModel(models.Model):
-    passenger = models.OneToOneField(passengerModel,on_delete=models.CASCADE)
-    flight = models.OneToOneField(flightModel, on_delete = models.CASCADE)
+    passenger = models.ForeignKey(passengerModel, related_name='reservation',on_delete=models.CASCADE)
+    flight = models.ForeignKey(flightModel,related_name='bookings', on_delete = models.CASCADE)
